@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form  #f="ngForm" (ngSubmit)="onCategoryRegister(f)">
+    <div class="form-group row">
+      <label for="name" class="col-sm-3 form-control-label">Category</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control"
+        id="name"
+        minlength="2"
+        maxlength="20"
+        placeholder=""
+        name="category"
+        required
+        firstname
+        ngModel
+        #category="ngModel"
+        >
+
+      </div>
+    <button mat-raised-button color="accent" type="submit">Save Post</button>
+    </div>
+  </form>
+</mat-card>
