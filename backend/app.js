@@ -14,7 +14,7 @@ const url = 'localhost:27017/myDatabase';
 
 const dbName = 'myproject';
 const app = express();
-mongoose.connect('mongodb://localhost:27017/myapp', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost:27017/myapp', { useNewUrlParser: true });
 /*MongoClient.connect(url, function(err, db) {
   if (err) throw err;
   console.log("Database created!");
@@ -47,25 +47,25 @@ mongoose.connect('mongodb://localhost:27017/myapp', {useNewUrlParser: true});
   }); */
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use("/images", express.static(path.join("backend/images")));
+app.use("/images", express.static(path.join("images")));
 //app.use(app.router);
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PATCH, PUT, DELETE, OPTIONS"
-  );
-  next();
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    res.setHeader(
+        "Access-Control-Allow-Methods",
+        "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+    );
+    next();
 });
 
 app.use("/api/posts", postsRoutes);
 app.use("/api/user", userRoutes);
-app.use("/api/men",  menRoutes);
+app.use("/api/men", menRoutes);
 app.use("/api/women", womenRoutes);
 app.use("/api/allCategoryName", allCategoryRoutes);
 
